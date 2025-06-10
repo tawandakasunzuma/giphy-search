@@ -1,12 +1,11 @@
 export default function Footer () {
   return (
     <footer className="
-      bg-cyan-700
-      max-w-screen py-4
+      bg-sky-600
+      w-full
       text-center text-stone-100
-      relative bottom-0
       py-1 md:py-2 lg:py-4
-      font-normal
+      font-medium text-lg
     ">
         <small> 
           Copyright &copy;

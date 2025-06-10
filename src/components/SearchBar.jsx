@@ -37,7 +37,7 @@ export default function SearchBar({onSearch}) {
         " 
       />
 
-      <button type='submit'>
+      <button type='submit' >
         <img 
           src={searchIcon} 
           alt="Search icon" 
