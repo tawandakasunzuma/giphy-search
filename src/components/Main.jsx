@@ -1,6 +1,7 @@
 import GifGrid from "./GifGrid"
 import downArrow from '../assets/down-arrow.svg'
-export default function Main () {
+export default function Main ({gifs}) {
+  const gifsArray = gifs;
   return (
     <main className="mb-8">
       <p className="
@@ -9,7 +10,7 @@ export default function Main () {
       ">
         View your gifs below
       </p>
-      <GifGrid />
+      <GifGrid gifs={gifsArray} />
       <img 
         src={downArrow} 
         alt="Down arrow"

@@ -1,11 +1,11 @@
 export default function Footer () {
   return (
     <footer className="
-      bg-stone-100
+      bg-sky-500
       max-w-screen py-4
-      text-center text-blue-950
+      text-center text-stone-100
       relative bottom-0
-      py-2
+      py-1 md:py-2 lg:py-4
       font-normal
     ">
         <small> 
