@@ -6,13 +6,32 @@ import Footer from './components/Footer'
 export default function App() {
 
   const [gifs,setGifs] = useState([])
+
+  function handleSearch (searchTerm) {
+    const key = import.meta.env.VITE_TENOR_API_KEY;
+    const url = `https://tenor.googleapis.com/v2/search?q=${searchTerm}&key=${key}&limit=12`;
+
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error ("Search failed");
+        }
+        return response.json();
+      })
+      .then(data => {
+        setGifs(data.results)
+      })
+      .catch((error) => {
+        console.log("Search error:",error)
+      })
+  }
   
   useEffect(() => {
     
     const fetchingApi = async () => {
 
       const key = import.meta.env.VITE_TENOR_API_KEY;
-      const url = `https://tenor.googleapis.com/v2/featured?key=${key}&limit=16`;
+      const url = `https://tenor.googleapis.com/v2/featured?key=${key}&limit=12`;
 
       try {
         const response = await fetch(url);
@@ -29,14 +48,13 @@ export default function App() {
   }
   fetchingApi()
   },[]);
-  console.log(gifs)
 
   return (
     <div className="
-      h-14 bg-gradient-to-t from-sky-500 to-blue-800
+      h-14 bg-gradient-to-t from-sky-600 to-blue-900
       min-h-screen h-full max-w-screen
     ">
-      <Header/>
+      <Header onSearch={handleSearch}/>
       <Main gifs={gifs} />
       <Footer />
     </div>

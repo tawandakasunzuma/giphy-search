@@ -1,7 +1,7 @@
 export default function Footer () {
   return (
     <footer className="
-      bg-sky-500
+      bg-cyan-700
       max-w-screen py-4
       text-center text-stone-100
       relative bottom-0

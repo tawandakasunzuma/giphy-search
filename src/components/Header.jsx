@@ -1,7 +1,7 @@
 import SearchBar from "./SearchBar"
 import ThemeToggle from "./ThemeToggle"
 
-export default function Header () {
+export default function Header ({onSearch}) {
     return (
         <header className="pt-8 md:pt-12 lg:pt-16 flex flex-col justify-center items-center ">
             <div className="
@@ -24,7 +24,7 @@ export default function Header () {
             ">
                 This is a description of the app and everything it does, so the user knows what it is.
             </p>
-            <SearchBar />
+            <SearchBar onSearch={onSearch} />
         </header>
     )
 }
