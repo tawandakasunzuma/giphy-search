@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Main from './components/Main'
 import Footer from './components/Footer'
 import Loader from './components/Loader'
+import Modal from './components/Modal';
 
 export default function App() {
 
