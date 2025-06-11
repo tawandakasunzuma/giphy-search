@@ -10,7 +10,9 @@ export default function App() {
   const [gifs,setGifs] = useState([])
   const [loading,setLoading] = useState(false)
   const [error,setError] = useState("")
+  const [selectedGif,setSelectedGif] = useState(null)
 
+  console.log(selectedGif)
   function handleSearch (searchTerm) {
     const key = import.meta.env.VITE_TENOR_API_KEY;
     if (!key) {
@@ -94,7 +96,7 @@ export default function App() {
           <Loader />
         </div>
       ) : (
-        <Main gifs={gifs} />
+        <Main gifs={gifs} onSelect={setSelectedGif} />
       )}
       {error && 
         <p 
@@ -106,6 +108,12 @@ export default function App() {
         >
           {error}
         </p>
+      }
+      {selectedGif !== null && 
+        <Modal
+          gif={selectedGif} 
+          onClose={() => setSelectedGif(null)}
+        />
       }
       <Footer />
     </div>

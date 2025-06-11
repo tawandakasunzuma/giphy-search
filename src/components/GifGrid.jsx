@@ -1,11 +1,12 @@
 import GifCard from "./GifCard"
 
-export default function GifGrid ({gifs}) {
+export default function GifGrid ({gifs, onSelect}) {
   const gifInfo = gifs.map(gif => (
     <GifCard 
       key={gif.id} 
       url={gif.media_formats.gif.url} 
-      description={gif.content_description} 
+      description={gif.content_description}
+      onSelect={() => onSelect(gif)}
     />
   ))
   return (

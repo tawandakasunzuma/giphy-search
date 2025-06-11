@@ -1,6 +1,6 @@
 import GifGrid from "./GifGrid"
 import downArrow from '../assets/down-arrow.svg'
-export default function Main ({gifs}) {
+export default function Main ({gifs,onSelect}) {
   return (
     <main className="mb-8">
       <p className="
@@ -9,7 +9,7 @@ export default function Main ({gifs}) {
       ">
         View your gifs below
       </p>
-      <GifGrid gifs={gifs} />
+      <GifGrid gifs={gifs} onSelect={onSelect} />
       <img 
         src={downArrow} 
         alt="Scroll down to view more GIFs"

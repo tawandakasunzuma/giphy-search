@@ -1,6 +1,7 @@
-export default function Modal() {
+export default function Modal({gif,onClose}) {
   return (
     <div
+      onClick={onClose}
       className="
         fixed inset-0 bg-black bg-opacity-50 
         flex items-center justify-center 
@@ -8,21 +9,43 @@ export default function Modal() {
       "
     >
       <div
+        onClick={(event) => event.stopPropagation()}
         className="
-          bg-white rounded-lg p-6 max-w-lg w-full
+          bg-stone-50 rounded-lg p-6 max-w-sm md:max-w-md lg:max-w-lg w-full
           shadow-lg
         "
       >
-        <h2 className="text-xl font-semibold mb-4 text-gray-800 text-center">
-          GIF Modal Title
+        <h2 
+          className="
+            text:base md:text-lg lg:text-xl
+            font-medium md:font-medium lg:font-medium 
+            text-stone-800 text-center
+            mb-4
+          ">
+          {gif?.content_description}
         </h2>
-        <div className="w-full h-64 bg-gray-200 rounded-md flex items-center justify-center">
-          <p className="text-gray-500">GIF goes here</p>
+        <div 
+          className="
+            w-full h-48 md:h-56 lg:h-64 
+            bg-stone-100 rounded-xl
+            flex items-center justify-center
+            overflow-hidden
+          ">
+          <img 
+            src={gif?.media_formats.gif.url}
+            alt={gif?.content_description} 
+            className="w-full h-full object-contain"
+          />
         </div>
         <button
+          onClick={onClose}
           className="
-            mt-6 bg-blue-600 hover:bg-blue-700 
-            text-white font-medium py-2 px-4 
+            bg-sky-700 hover:bg-sky-600
+            text-stone-50 
+            font-normal md:font-normal lg:font-normal
+            text-sm md:text-sm lg:text-base
+            py-1 md:py-2 lg:py-2
+            px-2 md:px-4 md:px-6 mt-6
             rounded transition duration-200
             mx-auto block
           "
