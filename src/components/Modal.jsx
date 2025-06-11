@@ -61,8 +61,8 @@ export default function Modal({gif, onClose, theme}) {
           rounded-lg shadow-lg
           transform transition-all duration-600
           ${theme === 'dark' 
-            ? 'bg-sky-50 text-stone-800' 
-            : 'bg-stone-50 text-stone-700'
+            ? 'bg-sky-50 text-stone-700' 
+            : 'bg-stone-100 text-stone-600'
           }
         `}
       >
