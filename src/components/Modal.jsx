@@ -63,15 +63,17 @@ export default function Modal({gif,onClose}) {
       <div
         onClick={(event) => event.stopPropagation()}
         className="
-          bg-stone-50 rounded-lg p-6 max-w-sm md:max-w-md lg:max-w-lg w-full
+          bg-stone-50 rounded-lg 
+          p-6
+          max-w-sm md:max-w-md lg:max-w-lg w-full
           shadow-lg
           transform transition-all duration-600
         "
       >
         <h2 
           className="
-            text-base md:text-lg lg:text-xl
-            font-medium md:font-medium lg:font-medium 
+            text-sm md:text-md lg:text-lg
+            font-medium
             text-stone-800 text-center
             mb-4
           ">

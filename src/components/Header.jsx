@@ -18,7 +18,7 @@ export default function Header ({onSearch}) {
                 <ThemeToggle />
             </div>
             <p className="
-                text-stone-200 text-center text-xs md:text-sm
+                text-stone-200 text-center text-xs md:text-sm lg:text-sm
                 sm:px-8 md:px-16 lg:px-32
                 mb-8 md:mt-4 md:mb-12 lg:mt-8 lg:mb-16
             ">
