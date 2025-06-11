@@ -1,6 +1,10 @@
-export default function Loader() {
+export default function Loader({ theme }) {
   return (
-    <div className="h-24 w-24 animate-spin text-stone-100">
+    <div
+      className={`h-24 w-24 animate-spin ${
+        theme === 'dark' ? 'text-stone-100' : 'text-stone-800'
+      }`}
+    >
       <svg className="h-full w-full" viewBox="0 0 24 24">
         <circle
           className="opacity-25"

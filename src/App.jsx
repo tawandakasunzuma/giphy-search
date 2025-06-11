@@ -7,6 +7,18 @@ import Modal from './components/Modal';
 
 export default function App() {
 
+  const [theme,setTheme] = useState(() => {
+    return localStorage.getItem('theme') || 'light'
+  })
+
+  useEffect(() => {
+    localStorage.setItem('theme',theme)
+  },[theme])
+
+  function toggleTheme () {
+    setTheme(prev => prev === 'light' ? 'dark' : 'light')
+  }
+
   const [gifs,setGifs] = useState([])
   const [loading,setLoading] = useState(false)
   const [error,setError] = useState("")
@@ -86,36 +98,64 @@ export default function App() {
   },[]);
 
   return (
-    <div className="
-      h-14 bg-gradient-to-t from-sky-500 to-blue-900
-      min-h-screen h-full max-w-screen
-    ">
-      <Header onSearch={handleSearch}/>
+    <div 
+      className={`
+        ${theme === 'dark' 
+          ? 'bg-gradient-to-t from-sky-500 to-blue-900'
+          : 'bg-gradient-to-t from-sky-100 to-blue-300'
+        }
+        h-14
+        min-h-screen h-full max-w-screen
+      `}>
+
+      {/*========== 
+          Header
+       ==========*/}
+
+      <Header onSearch={handleSearch} onToggle={toggleTheme} theme={theme} />
+
+      {/*========== 
+          Loader & Main
+       ==========*/}
+
       {loading ? (
         <div className="flex justify-center items-center min-h-[60vh]">
-          <Loader />
+          <Loader theme={theme} />
         </div>
       ) : (
-        <Main gifs={gifs} onSelect={setSelectedGif} />
+        <Main gifs={gifs} onSelect={setSelectedGif} theme={theme} />
       )}
+
+      {/*========== 
+          Error
+       ==========*/}
+
       {error && 
-        <p 
-          style={{
-            color:"white",
-            textAlign: "center",
-            marginBottom: "2rem"
-          }}
-        >
+        <p className={`
+          text-center mb-8
+          ${theme === 'dark' ? 'text-stone-100' : 'text-stone-700'}
+        `}>
           {error}
         </p>
       }
+
+      {/*========== 
+          Modal
+       ==========*/}
+
       {selectedGif !== null && 
         <Modal
+          theme={theme}
           gif={selectedGif} 
           onClose={() => setSelectedGif(null)}
         />
       }
-      <Footer />
+
+      {/*========== 
+          Footer
+       ==========*/}
+
+      <Footer theme={theme} />
     </div>
   );
 }

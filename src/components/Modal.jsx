@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
 
-export default function Modal({gif,onClose}) {
+export default function Modal({gif, onClose, theme}) {
+  const [visible, setVisible] = useState(false);
 
-  const [visible,setVisible] = useState(false);
-  
   function download() {
     fetch(gif?.media_formats.gif.url)
       .then(response => response.blob())
@@ -23,30 +22,24 @@ export default function Modal({gif,onClose}) {
   }
 
   useEffect(() => {
-
     setVisible(false)
+    const timer = setTimeout(() => setVisible(true), 10);
 
-    const timer = setTimeout(() => {
-      setVisible(true);
-    }, 10);
-
-    function escapeKey (event) {
+    function escapeKey(event) {
       if (event.key === "Escape") {
         setVisible(false);
-        setTimeout(() => {
-          onClose()
-        },600)
+        setTimeout(() => onClose(), 600);
       }
     }
-    
-    document.addEventListener("keydown", escapeKey)
+
+    document.addEventListener("keydown", escapeKey);
 
     return () => {
       clearTimeout(timer);
-      document.removeEventListener("keydown", escapeKey)
+      document.removeEventListener("keydown", escapeKey);
     }
-  
-  },[gif, onClose])
+  }, [gif, onClose]);
+
   return (
     <div
       role="dialog"
@@ -62,69 +55,63 @@ export default function Modal({gif,onClose}) {
     >
       <div
         onClick={(event) => event.stopPropagation()}
-        className="
-          bg-stone-50 rounded-lg 
+        className={`
           p-6
           max-w-sm md:max-w-md lg:max-w-lg w-full
-          shadow-lg
+          rounded-lg shadow-lg
           transform transition-all duration-600
-        "
+          ${theme === 'dark' 
+            ? 'bg-stone-800 text-stone-100' 
+            : 'bg-stone-50 text-stone-800'
+          }
+        `}
       >
         <h2 
-          className="
-            text-sm md:text-md lg:text-lg
-            font-medium
-            text-stone-800 text-center
-            mb-4
-          ">
+          className="text-sm md:text-md lg:text-lg font-medium text-center mb-4"
+        >
           {gif?.content_description}
         </h2>
         <div 
-          className="
-            w-full h-48 md:h-56 lg:h-64 
-            bg-stone-100 rounded-xl
-            flex items-center justify-center
-            overflow-hidden
-          ">
+          className={`
+            w-full h-48 md:h-56 lg:h-64 rounded-xl flex items-center justify-center overflow-hidden
+            ${theme === 'dark' ? 'bg-stone-700' : 'bg-stone-100'}
+          `}
+        >
           <img 
             src={gif?.media_formats.gif.url}
             alt={gif?.content_description} 
             className="w-full h-full object-contain"
           />
         </div>
-        <div 
-          className='
-            flex flex-row justify-between gap-4
-            mt-6
-          '>
-            <button 
-              onClick={download}
-              aria-label={`Download ${gif?.content_description || 'gif'}`}
-              className="
-                bg-green-600 hover:bg-green-500
-                text-stone-50 
-                font-normal md:font-normal lg:font-normal
-                text-sm md:text-sm lg:text-base
-                py-1 md:py-2 lg:py-2
-                px-2 md:px-4 md:px-6
-                rounded transition duration-600
-                mx-auto block
-              "
-            >
-              Download
-          </button>
-          <button
-            onClick={onClose}
-            className="
-              bg-sky-700 hover:bg-sky-600
+        <div className="flex flex-row justify-between gap-4 mt-6">
+          <button 
+            onClick={download}
+            aria-label={`Download ${gif?.content_description || 'gif'}`}
+            className={`
+              bg-green-600 hover:bg-green-500
               text-stone-50 
-              font-normal md:font-normal lg:font-normal
+              font-normal
               text-sm md:text-sm lg:text-base
               py-1 md:py-2 lg:py-2
               px-2 md:px-4 md:px-6
               rounded transition duration-600
               mx-auto block
-            "
+            `}
+          >
+            Download
+          </button>
+          <button
+            onClick={onClose}
+            className={`
+              bg-sky-700 hover:bg-sky-600
+              text-stone-50 
+              font-normal
+              text-sm md:text-sm lg:text-base
+              py-1 md:py-2 lg:py-2
+              px-2 md:px-4 md:px-6
+              rounded transition duration-600
+              mx-auto block
+            `}
           >
             Close
           </button>

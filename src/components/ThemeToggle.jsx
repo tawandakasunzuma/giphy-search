@@ -1,13 +1,14 @@
-import switchIcon from "../assets/switch-icon.svg"
+import darkModeIcon from "../assets/dark-mode-switch-blue.svg"
+import lightModeIcon from "../assets/light-mode-switch.svg"
 
-export default function ThemeToggle () {
+export default function ThemeToggle ({onToggle, theme}) {
   return (
-    <img 
-      src={switchIcon} 
+    <img
+      onClick={onToggle}
+      src={theme === 'dark' ? lightModeIcon : darkModeIcon} 
       alt="Switch icon"
       className="
-          w-6 h-auto md:w-7 lg:w-8
-          filter invert 
+          h-auto w-3 md:w-4 lg:w-5
           cursor-pointer
           my-4
       " 
