@@ -1,7 +1,8 @@
 import GifGrid from "./GifGrid"
-import downArrow from '../assets/down-arrow.svg'
+import lightDownArrow from '../assets/down-arrow-light.svg'
+import darkDownArrow from '../assets/down-arrow-dark.svg'
 
-export default function Main({ gifs, onSelect, theme }) {
+export default function Main({ gifs, onSelect, theme, onLoadMore }) {
   return (
     <main className="mb-8">
       <p className={`
@@ -16,8 +17,13 @@ export default function Main({ gifs, onSelect, theme }) {
       </p>
       <GifGrid gifs={gifs} onSelect={onSelect} theme={theme} />
       <img 
-        src={downArrow} 
+        src={
+          theme === 'dark' 
+            ? darkDownArrow
+            : lightDownArrow
+          } 
         alt="Scroll down to view more GIFs"
+        onClick={onLoadMore}
         className="
           motion-safe:animate-bounce
           w-6 md:w-7 lg:w-8 h-auto

@@ -61,8 +61,8 @@ export default function Modal({gif, onClose, theme}) {
           rounded-lg shadow-lg
           transform transition-all duration-600
           ${theme === 'dark' 
-            ? 'bg-stone-800 text-stone-100' 
-            : 'bg-stone-50 text-stone-800'
+            ? 'bg-sky-50 text-stone-800' 
+            : 'bg-stone-50 text-stone-700'
           }
         `}
       >
@@ -74,7 +74,7 @@ export default function Modal({gif, onClose, theme}) {
         <div 
           className={`
             w-full h-48 md:h-56 lg:h-64 rounded-xl flex items-center justify-center overflow-hidden
-            ${theme === 'dark' ? 'bg-stone-700' : 'bg-stone-100'}
+            ${theme === 'dark' ? 'bg-sky-50' : 'bg-stone-100'}
           `}
         >
           <img 

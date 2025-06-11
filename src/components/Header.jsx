@@ -30,7 +30,7 @@ export default function Header({ onSearch, onToggle, theme }) {
           ${theme === 'dark' ? 'text-stone-200' : 'text-stone-700'}
         `}
       >
-        This is a description of the app and everything it does, so the user knows what it is.
+        Search, preview, and download GIFs with light/dark theme support.
       </p>
       <SearchBar onSearch={onSearch} theme={theme} />
     </header>

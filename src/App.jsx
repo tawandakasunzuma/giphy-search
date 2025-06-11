@@ -23,41 +23,67 @@ export default function App() {
   const [loading,setLoading] = useState(false)
   const [error,setError] = useState("")
   const [selectedGif,setSelectedGif] = useState(null)
+  const [pos, setPos] = useState("")
+  const [searchTerm, setSearchTerm] = useState("");
 
-  console.log(selectedGif)
-  function handleSearch (searchTerm) {
+function handleSearch(term) {
+  const key = import.meta.env.VITE_TENOR_API_KEY;
+  if (!key) {
+    setError("API key is missing.");
+    return;
+  }
+
+  setSearchTerm(term);  // ✅ Set the search term
+  setLoading(true);
+  setError("");
+
+  const url = `https://tenor.googleapis.com/v2/search?q=${term}&key=${key}&limit=12`;
+
+  fetch(url)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Search failed. Please try again.");
+      }
+      return response.json();
+    })
+    .then(data => {
+      if (data.results.length === 0) {
+        setError(`No GIFs found for “${term}.”`);
+        setGifs([]);
+      } else {
+        setError("");
+        setGifs(data.results);
+        setPos(data.next);
+      }
+    })
+    .catch((error) => {
+      setError(error.message);
+    })
+    .finally(() => {
+      setLoading(false);
+    });
+}
+
+  function loadMoreGifs() {
     const key = import.meta.env.VITE_TENOR_API_KEY;
-    if (!key) {
-      setError("API key is missing.");
-      return;
-    }
-    const url = `https://tenor.googleapis.com/v2/search?q=${searchTerm}&key=${key}&limit=12`;
+    if (!key || !pos) return;
 
-    setLoading(true)
-    setError("")
+    const baseUrl = searchTerm
+      ? `https://tenor.googleapis.com/v2/search?q=${searchTerm}`
+      : `https://tenor.googleapis.com/v2/featured`;
+
+    const url = `${baseUrl}&key=${key}&limit=12&pos=${pos}`;
+
+    setLoading(true);
 
     fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error ("Search failed. Please try again.");
-        }
-        return response.json();
-      })
+      .then(res => res.json())
       .then(data => {
-        if (data.results.length === 0) {
-          setError(`No GIFs found for “${searchTerm}.”`);
-          setGifs([]);
-        } else {
-          setError("");
-          setGifs(data.results);
-        }
+        setGifs(prev => [...prev, ...data.results]);
+        setPos(data.next);
       })
-      .catch((error) => {
-        setError(error.message)
-      })
-      .finally (() => {
-        setLoading(false)
-      })
+      .catch(err => setError(err.message))
+      .finally(() => setLoading(false));
   }
   
   useEffect(() => {
@@ -123,7 +149,7 @@ export default function App() {
           <Loader theme={theme} />
         </div>
       ) : (
-        <Main gifs={gifs} onSelect={setSelectedGif} theme={theme} />
+        <Main gifs={gifs} onSelect={setSelectedGif} theme={theme} onLoadMore={loadMoreGifs}/>
       )}
 
       {/*========== 
