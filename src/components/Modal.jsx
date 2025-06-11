@@ -1,4 +1,40 @@
+import { useEffect } from 'react'
+
 export default function Modal({gif,onClose}) {
+
+    function download() {
+      fetch(gif?.media_formats.gif.url)
+        .then(response => response.blob())
+        .then(blob => {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = `${gif?.content_description}gif`;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          URL.revokeObjectURL(url);
+        })
+        .catch(err => {
+          console.error("Download failed:", err);
+        });
+    }
+
+  useEffect(() => {
+
+    function escapeKey (event) {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    }
+    
+    document.addEventListener("keydown", escapeKey)
+
+    return () => {
+      document.removeEventListener("keydown", escapeKey)
+    }
+  
+  },[])
   return (
     <div
       onClick={onClose}
@@ -37,21 +73,38 @@ export default function Modal({gif,onClose}) {
             className="w-full h-full object-contain"
           />
         </div>
-        <button
-          onClick={onClose}
-          className="
-            bg-sky-700 hover:bg-sky-600
-            text-stone-50 
-            font-normal md:font-normal lg:font-normal
-            text-sm md:text-sm lg:text-base
-            py-1 md:py-2 lg:py-2
-            px-2 md:px-4 md:px-6 mt-6
-            rounded transition duration-200
-            mx-auto block
-          "
-        >
-          Close
-        </button>
+        <div className='flex flex-row justify-between'>
+            <button 
+              onClick={download}
+              className="
+                bg-green-600 hover:bg-green-500
+                text-stone-50 
+                font-normal md:font-normal lg:font-normal
+                text-sm md:text-sm lg:text-base
+                py-1 md:py-2 lg:py-2
+                px-2 md:px-4 md:px-6 mt-6
+                rounded transition duration-200
+                mx-auto block
+              "
+            >
+              Download
+          </button>
+          <button
+            onClick={onClose}
+            className="
+              bg-sky-700 hover:bg-sky-600
+              text-stone-50 
+              font-normal md:font-normal lg:font-normal
+              text-sm md:text-sm lg:text-base
+              py-1 md:py-2 lg:py-2
+              px-2 md:px-4 md:px-6 mt-6
+              rounded transition duration-200
+              mx-auto block
+            "
+          >
+            Close
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -87,7 +87,7 @@ export default function App() {
 
   return (
     <div className="
-      h-14 bg-gradient-to-t from-sky-600 to-blue-900
+      h-14 bg-gradient-to-t from-sky-500 to-blue-900
       min-h-screen h-full max-w-screen
     ">
       <Header onSearch={handleSearch}/>
