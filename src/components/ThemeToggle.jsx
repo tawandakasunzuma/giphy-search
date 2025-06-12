@@ -13,7 +13,7 @@ export default function ThemeToggle ({onToggle, theme}) {
           my-4
           transition-all duration-700 ease-in-out
           transform hover:scale-125
-          opacity-75 active:opacity-100
+          opacity-100
           animate-pulse
       " 
   />

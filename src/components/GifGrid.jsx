@@ -15,10 +15,13 @@ export default function GifGrid({ gifs, onSelect, theme }) {
   return (
     <div
       className={`
-        grid grid-cols-[repeat(auto-fit,_minmax(200px,_1fr))] 
+        grid 
+        [grid-template-columns:repeat(auto-fit,minmax(120px,1fr))]
+        md:[grid-template-columns:repeat(auto-fit,minmax(160px,1fr))]
+        lg:[grid-template-columns:repeat(auto-fit,minmax(200px,1fr))]
         gap-4 md:gap-6 lg:gap-8 
-        mx-24 md:mx-28 lg:mx-32 
-        py-8 md:px-6 px-4 lg:px-8 
+        mx-[10vw]
+        py-8 px-4 md:px-6 lg:px-8 
         rounded-lg md:rounded-xl lg:rounded-xl
         shadow-3xl
         ${

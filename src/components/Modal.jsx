@@ -130,7 +130,7 @@ export default function Modal({gif, onClose, theme}) {
             onClick={download}
             aria-label={`Download ${gif?.content_description || 'gif'}`}
             className={`
-              bg-green-600 hover:bg-green-500 active:bg-green-300
+              bg-green-500 hover:bg-green-400 active:bg-green-200
               text-stone-50 
               font-normal
               text-xs md:text-sm lg:text-base
@@ -146,7 +146,7 @@ export default function Modal({gif, onClose, theme}) {
             autoFocus
             onClick={onClose}
             className={`
-              bg-sky-700 hover:bg-sky-600 active:bg-sky-400
+              bg-sky-600 hover:bg-sky-500 active:bg-sky-300
               text-stone-50 
               font-normal
               text-xs md:text-sm lg:text-base

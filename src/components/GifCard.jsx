@@ -3,12 +3,13 @@ export default function GifCard({ url, description, onSelect, theme }) {
     <div
       className="
         w-full 
-        max-w-[150px] md:max-w-[175px] lg:max-w-[200px] aspect-w-1 
-        max-h-[150px] md:max-h-[175px] lg:max-h-[200px] aspect-h-1
+        max-w-[160px] md:max-w-[200px] lg:max-w-[240px] 
+        aspect-square
       "
     >
       <img
         onClick={onSelect}
+        loading="lazy"
         src={url}
         alt={description}
         className={`

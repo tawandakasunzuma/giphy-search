@@ -26,7 +26,8 @@ export default function Header({ onSearch, onToggle, theme }) {
         className={`
           text-center text-xs md:text-sm lg:text-sm
           sm:px-8 md:px-16 lg:px-32
-          mb-8 md:mt-4 md:mb-12 lg:mt-8 lg:mb-16
+          mb-8 md:mb-12 lg:mb-16
+          mt-2 md:mt-4 lg:mt-8 
           ${theme === 'dark' ? 'text-stone-200' : 'text-stone-700'}
         `}
       >

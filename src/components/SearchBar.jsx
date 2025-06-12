@@ -34,8 +34,8 @@ export default function SearchBar({ onSearch, theme }) {
           rounded-2xl md:rounded-3xl lg:rounded-4xl w-60 md:w-72 lg:w-96
           text-sm md:text-md lg:text-md py-1 md:py-2 lg:py-3 px-4 md:px-5 lg:px-5
           ${theme === 'dark' 
-            ? 'bg-stone-200 text-stone-800 placeholder-stone-600' 
-            : 'bg-stone-100 text-stone-700 placeholder-stone-600'
+            ? 'bg-stone-300 text-stone-900 placeholder-stone-600 shadow-[0_0_10px_#1c191780]' 
+            : 'bg-stone-100 text-stone-700 placeholder-stone-400 shadow-[0_0_10px_#44403c80]'
           }
         `}
       />
@@ -46,10 +46,10 @@ export default function SearchBar({ onSearch, theme }) {
           alt="Search icon"
           className={`
             h-auto w-4 md:w-5 lg:w-6
-            opacity-50 hover:opacity-75 active:opacity-100
+            opacity-50 hover:opacity-100 active:opacity-25
             cursor-pointer
             transition-all duration-300 ease-in-out
-            transform hover:scale-105
+            transform active:scale-110
             ${theme === 'dark' ? 'filter invert' : 'filter-none'}
           `}
         />
