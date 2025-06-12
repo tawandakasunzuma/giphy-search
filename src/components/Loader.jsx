@@ -1,7 +1,9 @@
 export default function Loader({ theme }) {
   return (
     <div
-      className={`h-24 w-24 animate-spin ${
+      className={`
+        h-24 w-24 md:h-36 md:w-36 lg:h-48 lg:w-48 
+        animate-spin ${
         theme === 'dark' ? 'text-stone-100' : 'text-stone-800'
       }`}
     >

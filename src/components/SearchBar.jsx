@@ -45,7 +45,8 @@ export default function SearchBar({ onSearch, theme }) {
           src={searchIcon}
           alt="Search icon"
           className={`
-            w-5 h-auto md:w-6 lg:w-7
+            h-auto w-4 md:w-5 lg:w-6
+            opacity-75
             cursor-pointer
             ${theme === 'dark' ? 'filter invert' : 'filter-none'}
           `}

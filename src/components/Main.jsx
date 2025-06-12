@@ -6,11 +6,12 @@ export default function Main({ gifs, onSelect, theme, onLoadMore }) {
   return (
     <main className="mb-8">
       <p className={`
+        opacity-75
         ${theme === 'dark' 
           ? 'text-stone-100' 
           : 'text-stone-800'
         }
-        mb-8
+        mb-4
         uppercase font-normal text-center underline text-xs md:text-sm lg:text-base
       `}>
         View your gifs below

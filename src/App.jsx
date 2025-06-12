@@ -127,8 +127,8 @@ function handleSearch(term) {
     <div 
       className={`
         ${theme === 'dark' 
-          ? 'bg-gradient-to-t from-sky-500 to-blue-900'
-          : 'bg-gradient-to-t from-sky-100 to-blue-300'
+          ? 'bg-gradient-to-br from-gray-900 via-indigo-800 to-blue-900'
+          : 'bg-gradient-to-br from-sky-50 via-sky-200 to-blue-400'
         }
         h-14
         min-h-screen h-full max-w-screen

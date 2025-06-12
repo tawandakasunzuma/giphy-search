@@ -11,6 +11,8 @@ export default function ThemeToggle ({onToggle, theme}) {
           h-auto w-3 md:w-4 lg:w-5
           cursor-pointer
           my-4
+          transition-transform duration-700 ease-in-out
+          transform hover:scale-125
       " 
   />
   )

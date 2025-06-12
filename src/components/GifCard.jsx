@@ -15,17 +15,19 @@ export default function GifCard({ url, description, onSelect, theme }) {
           w-full h-full 
           object-contain
           rounded-sm
-          border-2 cursor-pointer
-          transition-shadow duration-600 ease
+          border-2
+          cursor-pointer
+          transition-shadow transition-transform duration-300 ease-in-out
+          transform hover:scale-[1.02]
           ${
             theme === 'dark'
               ? `
-                border-sky-600 hover:border-blue-600
-                shadow-md hover:shadow-lg
+                border-indigo-800 hover:border-blue-800
+                shadow-lg hover:shadow-2xl
               `
               : `
-                border-stone-200 hover:border-stone-300
-                shadow-sm hover:shadow-lg shadow-stone-400
+                border-blue-200 hover:border-indigo-300
+                shadow-sm hover:shadow-lg
               `
           }
         `}

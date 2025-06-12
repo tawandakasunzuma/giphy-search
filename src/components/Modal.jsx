@@ -49,7 +49,7 @@ export default function Modal({gif, onClose, theme}) {
         fixed inset-0 bg-black bg-opacity-75 
         flex items-center justify-center 
         z-[99]
-        transition-opacity duration-600
+        transition-opacity duration-300
         ${visible ? 'opacity-100' : 'opacity-0'}
       `}
     >
@@ -59,22 +59,22 @@ export default function Modal({gif, onClose, theme}) {
           p-6
           max-w-sm md:max-w-md lg:max-w-lg w-full
           rounded-lg shadow-lg
-          transform transition-all duration-600
+          transform transition-all duration-700
           ${theme === 'dark' 
-            ? 'bg-sky-50 text-stone-700' 
-            : 'bg-stone-100 text-stone-600'
+            ? 'bg-gradient-to-br from-gray-900 via-indigo-800 to-blue-900 text-stone-200' 
+            : 'bg-gradient-to-br from-blue-50 via-sky-200 to-blue-400 text-stone-800'
           }
         `}
       >
         <h2 
-          className="text-sm md:text-md lg:text-lg font-medium text-center mb-4"
+          className="text-xs md:text-sm lg:text-md font-medium text-center mb-4"
         >
           {gif?.content_description}
         </h2>
         <div 
           className={`
             w-full h-48 md:h-56 lg:h-64 rounded-xl flex items-center justify-center overflow-hidden
-            ${theme === 'dark' ? 'bg-sky-50' : 'bg-stone-100'}
+            shadow-md
           `}
         >
           <img 
@@ -94,13 +94,14 @@ export default function Modal({gif, onClose, theme}) {
               text-sm md:text-sm lg:text-base
               py-1 md:py-2 lg:py-2
               px-2 md:px-4 md:px-6
-              rounded transition duration-600
+              rounded transition duration-300
               mx-auto block
             `}
           >
             Download
           </button>
           <button
+            autoFocus
             onClick={onClose}
             className={`
               bg-sky-700 hover:bg-sky-600
@@ -109,7 +110,7 @@ export default function Modal({gif, onClose, theme}) {
               text-sm md:text-sm lg:text-base
               py-1 md:py-2 lg:py-2
               px-2 md:px-4 md:px-6
-              rounded transition duration-600
+              rounded transition duration-300
               mx-auto block
             `}
           >
