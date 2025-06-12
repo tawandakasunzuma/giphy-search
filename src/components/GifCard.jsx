@@ -13,20 +13,20 @@ export default function GifCard({ url, description, onSelect, theme }) {
         alt={description}
         className={`
           w-full h-full 
-          object-contain
-          rounded-sm
-          border-2
+          object-cover
+          rounded-lg md:rounded-xl lg:rounded-xl 
+          border-8
           cursor-pointer
-          transition-shadow transition-transform duration-300 ease-in-out
-          transform hover:scale-[1.02]
+          transition-all duration-300 ease-in-out
+          transform hover:scale-105
           ${
             theme === 'dark'
               ? `
-                border-indigo-800 hover:border-blue-800
+                border-indigo-800
                 shadow-lg hover:shadow-2xl
               `
               : `
-                border-blue-200 hover:border-indigo-300
+                border-blue-200
                 shadow-sm hover:shadow-lg
               `
           }

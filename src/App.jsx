@@ -25,6 +25,7 @@ export default function App() {
   const [selectedGif,setSelectedGif] = useState(null)
   const [pos, setPos] = useState("")
   const [searchTerm, setSearchTerm] = useState("");
+  const [currentlySearching,setCurrentlySearching] = useState(false);
 
 function handleSearch(term) {
   const key = import.meta.env.VITE_TENOR_API_KEY;
@@ -33,7 +34,7 @@ function handleSearch(term) {
     return;
   }
 
-  setSearchTerm(term);  // ✅ Set the search term
+  setSearchTerm(term);
   setLoading(true);
   setError("");
 
@@ -61,6 +62,7 @@ function handleSearch(term) {
     })
     .finally(() => {
       setLoading(false);
+      setCurrentlySearching(true)
     });
 }
 
@@ -149,7 +151,7 @@ function handleSearch(term) {
           <Loader theme={theme} />
         </div>
       ) : (
-        <Main gifs={gifs} onSelect={setSelectedGif} theme={theme} onLoadMore={loadMoreGifs}/>
+        <Main gifs={gifs} onSelect={setSelectedGif} theme={theme} onLoadMore={loadMoreGifs} currentlySearching={currentlySearching}/>
       )}
 
       {/*========== 

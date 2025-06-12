@@ -46,8 +46,10 @@ export default function SearchBar({ onSearch, theme }) {
           alt="Search icon"
           className={`
             h-auto w-4 md:w-5 lg:w-6
-            opacity-75
+            opacity-50 hover:opacity-75 active:opacity-100
             cursor-pointer
+            transition-all duration-300 ease-in-out
+            transform hover:scale-105
             ${theme === 'dark' ? 'filter invert' : 'filter-none'}
           `}
         />

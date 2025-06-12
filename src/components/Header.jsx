@@ -15,7 +15,7 @@ export default function Header({ onSearch, onToggle, theme }) {
           className={`
             uppercase text-2xl md:text-3xl lg:text-4xl
             font-medium tracking-wide
-            ${theme === 'dark' ? 'text-stone-100' : 'text-stone-900'}
+            ${theme === 'dark' ? 'text-stone-100' : 'text-stone-800'}
           `}
         >
           Searcha Gif

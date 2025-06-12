@@ -19,7 +19,8 @@ export default function GifGrid({ gifs, onSelect, theme }) {
         gap-4 md:gap-6 lg:gap-8 
         mx-24 md:mx-28 lg:mx-32 
         py-8 md:px-6 px-4 lg:px-8 
-        rounded-md md:rounded-lg lg:rounded-xl
+        rounded-lg md:rounded-xl lg:rounded-xl
+        shadow-3xl
         ${
           theme === "dark"
             ? 'bg-gradient-to-t from-blue-900 via-indigo-800 to-gray-00'
