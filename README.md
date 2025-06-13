@@ -2,6 +2,8 @@
 
 > A fast and modern GIF search app built with React, Tailwind CSS, and the Giphy API. Features infinite scroll, dark mode, and one-click downloads.
 
+🌐 [Live Demo on Netlify](https://searchagif.netlify.app)
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/tawandakasunzuma/giphy-search-app?style=social)](https://github.com/tawandakasunzuma/giphy-search-app/stargazers)
 [![GitHub Issues](https://img.shields.io/github/issues/tawandakasunzuma/giphy-search-app)](https://github.com/tawandakasunzuma/giphy-search-app/issues)
