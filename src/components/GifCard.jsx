@@ -21,7 +21,7 @@ export default function GifCard({ url, description, onSelect, theme }) {
           border-4 md:border-6 lg:border-8
           cursor-pointer
           transition-all duration-300 ease-in-out
-          transform hover:scale-105
+          transform hover:scale-[1.02]
           ${
             theme === 'dark'
               ? `

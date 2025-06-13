@@ -146,7 +146,7 @@ export default function App() {
   },[]);
 
   return (
-    
+
     <div
     
       className={`
@@ -158,13 +158,11 @@ export default function App() {
         min-h-screen h-full max-w-screen
       `}>
 
-      {/* Header */}
       <Header 
         onSearch={handleSearch} 
         onToggle={toggleTheme} 
         theme={theme} />
 
-      {/* Loader & Main */}
       {loading ? (
         <div className="
           flex justify-center items-center 
@@ -181,7 +179,6 @@ export default function App() {
           currentlySearching={currentlySearching}/>
       )}
 
-      {/* Error */}
       {error && 
         <p className={`
           text-center mb-8
@@ -199,7 +196,6 @@ export default function App() {
           onClose={() => setSelectedGif(null)} />
       }
 
-      {/* Footer */}
       <Footer 
         theme={theme} />
 
