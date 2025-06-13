@@ -5,7 +5,8 @@ export default function Footer({ theme }) {
         w-full
         text-center
         py-1 md:py-2 lg:py-4
-        font-medium text-lg 
+        font-medium 
+        text-sm md:text-md lg:text-lg 
         ${theme === 'dark' 
           ? 'text-stone-100' 
           : 'text-stone-800'}

@@ -7,6 +7,7 @@ import Modal from './components/Modal';
 
 export default function App() {
 
+  // Theme
   const [theme,setTheme] = useState(() => {
     return localStorage.getItem('theme') || 'light'
   })
@@ -19,6 +20,7 @@ export default function App() {
     setTheme(prev => prev === 'light' ? 'dark' : 'light')
   }
 
+  // UseState
   const [gifs,setGifs] = useState([])
   const [loading,setLoading] = useState(false)
   const [error,setError] = useState("")
@@ -27,48 +29,60 @@ export default function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [currentlySearching,setCurrentlySearching] = useState(false);
 
-function handleSearch(term) {
-  const key = import.meta.env.VITE_TENOR_API_KEY;
-  if (!key) {
-    setError("API key is missing.");
-    return;
+  // Handle Search 
+  function handleSearch(term) {
+    
+    const key = import.meta.env.VITE_TENOR_API_KEY;
+    
+    if (!key) {
+      setError("API key is missing.");
+      return;
+    }
+
+    setSearchTerm(term);
+    setLoading(true);
+    setError("");
+
+    const url = `https://tenor.googleapis.com/v2/search?q=${term}&key=${key}&limit=12`;
+
+    fetch(url)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Search failed. Please try again.");
+        }
+        return response.json();
+      })
+
+      .then(data => {
+        if (data.results.length === 0) {
+          setError(`No GIFs found for “${term}.”`);
+          setGifs([]);
+        } else {
+          setError("");
+          setGifs(data.results);
+          setPos(data.next);
+        }
+      })
+      
+      .catch((error) => {
+        setError(error.message);
+      })
+      
+      .finally(() => {
+        setLoading(false);
+        setCurrentlySearching(true)
+      
+      });
   }
 
-  setSearchTerm(term);
-  setLoading(true);
-  setError("");
-
-  const url = `https://tenor.googleapis.com/v2/search?q=${term}&key=${key}&limit=12`;
-
-  fetch(url)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("Search failed. Please try again.");
-      }
-      return response.json();
-    })
-    .then(data => {
-      if (data.results.length === 0) {
-        setError(`No GIFs found for “${term}.”`);
-        setGifs([]);
-      } else {
-        setError("");
-        setGifs(data.results);
-        setPos(data.next);
-      }
-    })
-    .catch((error) => {
-      setError(error.message);
-    })
-    .finally(() => {
-      setLoading(false);
-      setCurrentlySearching(true)
-    });
-}
-
+  // Load more gifs
   function loadMoreGifs() {
+
     const key = import.meta.env.VITE_TENOR_API_KEY;
-    if (!key || !pos) return;
+
+    if (!key || !pos) {
+      return
+    };
 
     const baseUrl = searchTerm
       ? `https://tenor.googleapis.com/v2/search?q=${searchTerm}`
@@ -79,15 +93,21 @@ function handleSearch(term) {
     setLoading(true);
 
     fetch(url)
-      .then(res => res.json())
-      .then(data => {
-        setGifs(prev => [...prev, ...data.results]);
-        setPos(data.next);
-      })
-      .catch(err => setError(err.message))
-      .finally(() => setLoading(false));
+      
+    .then(res => res.json())
+    
+    .then(data => {
+      setGifs(prev => [...prev, ...data.results]);
+      setPos(data.next);
+    })
+    
+    .catch(err => setError(err.message))
+    
+    .finally(() => setLoading(false));
+
   }
   
+  // Load cards on mount and show loading icon
   useEffect(() => {
 
     setLoading(true);
@@ -126,7 +146,9 @@ function handleSearch(term) {
   },[]);
 
   return (
-    <div 
+    
+    <div
+    
       className={`
         ${theme === 'dark' 
           ? 'bg-gradient-to-br from-gray-900 via-indigo-800 to-blue-900'
@@ -136,28 +158,30 @@ function handleSearch(term) {
         min-h-screen h-full max-w-screen
       `}>
 
-      {/*========== 
-          Header
-       ==========*/}
+      {/* Header */}
+      <Header 
+        onSearch={handleSearch} 
+        onToggle={toggleTheme} 
+        theme={theme} />
 
-      <Header onSearch={handleSearch} onToggle={toggleTheme} theme={theme} />
-
-      {/*========== 
-          Loader & Main
-       ==========*/}
-
+      {/* Loader & Main */}
       {loading ? (
-        <div className="flex justify-center items-center min-h-[60vh]">
+        <div className="
+          flex justify-center items-center 
+          min-h-[60vh]"
+        >
           <Loader theme={theme} />
         </div>
       ) : (
-        <Main gifs={gifs} onSelect={setSelectedGif} theme={theme} onLoadMore={loadMoreGifs} currentlySearching={currentlySearching}/>
+        <Main 
+          gifs={gifs} 
+          onSelect={setSelectedGif} 
+          theme={theme} 
+          onLoadMore={loadMoreGifs} 
+          currentlySearching={currentlySearching}/>
       )}
 
-      {/*========== 
-          Error
-       ==========*/}
-
+      {/* Error */}
       {error && 
         <p className={`
           text-center mb-8
@@ -167,23 +191,18 @@ function handleSearch(term) {
         </p>
       }
 
-      {/*========== 
-          Modal
-       ==========*/}
-
+      {/* Modal */}
       {selectedGif !== null && 
         <Modal
           theme={theme}
           gif={selectedGif} 
-          onClose={() => setSelectedGif(null)}
-        />
+          onClose={() => setSelectedGif(null)} />
       }
 
-      {/*========== 
-          Footer
-       ==========*/}
+      {/* Footer */}
+      <Footer 
+        theme={theme} />
 
-      <Footer theme={theme} />
     </div>
   );
 }

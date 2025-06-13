@@ -3,9 +3,12 @@ import infoDark from '../assets/info-dark.svg'
 import infoLight from '../assets/info-light.svg'
 
 export default function Modal({gif, onClose, theme}) {
+  
+  // UseState
   const [visible, setVisible] = useState(false);
   const [learnMore,setLearnMore] = useState(false)
 
+  // Download GIF logic
   function download() {
     fetch(gif?.media_formats.gif.url)
       .then(response => response.blob())
@@ -24,7 +27,9 @@ export default function Modal({gif, onClose, theme}) {
       });
   }
 
+  // 'Escape' key logic
   useEffect(() => {
+
     setVisible(false)
     const timer = setTimeout(() => setVisible(true), 10);
 
@@ -44,6 +49,7 @@ export default function Modal({gif, onClose, theme}) {
   }, [gif, onClose]);
 
   return (
+    
     <div
       role="dialog"
       aria-modal="true"
@@ -69,6 +75,7 @@ export default function Modal({gif, onClose, theme}) {
           }
         `}
       >
+
         {!learnMore
           ? <>
               <p 
@@ -99,7 +106,7 @@ export default function Modal({gif, onClose, theme}) {
                 " 
               />
             </>
-          : <h2 
+          : <h3 
               className={`
                 text-xs md:text-sm lg:text-md 
                 font-medium text-center 
@@ -111,21 +118,26 @@ export default function Modal({gif, onClose, theme}) {
               `}
             >
           {gif?.content_description}
-        </h2>
+        </h3>
         }
+
         <div 
           className={`
             w-full h-48 md:h-56 lg:h-64 rounded-xl flex items-center justify-center overflow-hidden
             shadow-md
           `}
         >
+
           <img 
             src={gif?.media_formats.gif.url}
             alt={gif?.content_description} 
             className="w-full h-full object-contain"
           />
+
         </div>
+        
         <div className="flex flex-row justify-between gap-4 mt-6">
+        
           <button 
             onClick={download}
             aria-label={`Download ${gif?.content_description || 'gif'}`}
@@ -142,6 +154,7 @@ export default function Modal({gif, onClose, theme}) {
           >
             Download
           </button>
+        
           <button
             autoFocus
             onClick={onClose}
@@ -158,6 +171,7 @@ export default function Modal({gif, onClose, theme}) {
           >
             Close
           </button>
+          
         </div>
       </div>
     </div>

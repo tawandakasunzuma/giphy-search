@@ -8,15 +8,17 @@ export default function GifCard({ url, description, onSelect, theme }) {
       "
     >
       <img
-        onClick={onSelect}
+        tabIndex={0}
+        role="button"
         loading="lazy"
+        onClick={onSelect}
         src={url}
         alt={description}
         className={`
           w-full h-full 
           object-cover
           rounded-lg md:rounded-xl lg:rounded-xl 
-          border-8
+          border-4 md:border-6 lg:border-8
           cursor-pointer
           transition-all duration-300 ease-in-out
           transform hover:scale-105

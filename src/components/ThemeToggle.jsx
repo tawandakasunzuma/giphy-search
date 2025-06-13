@@ -3,6 +3,7 @@ import lightModeIcon from "../assets/light-mode-switch.svg"
 
 export default function ThemeToggle ({onToggle, theme}) {
   return (
+
     <img
       onClick={onToggle}
       src={theme === 'dark' ? lightModeIcon : darkModeIcon} 
@@ -17,5 +18,6 @@ export default function ThemeToggle ({onToggle, theme}) {
           animate-pulse
       " 
   />
+  
   )
 }

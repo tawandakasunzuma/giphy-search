@@ -3,12 +3,15 @@ import searchIcon from '../assets/search-icon.svg'
 
 export default function SearchBar({ onSearch, theme }) {
 
+  // UseState
   const [searchTerm, setSearchTerm] = useState("")
 
+  // Display typing
   function handleChange(event) {
     setSearchTerm(event.target.value);
   }
 
+  // Handle from submission
   function handleSubmit(event) {
     event.preventDefault()
     if (searchTerm.trim() !== "") {

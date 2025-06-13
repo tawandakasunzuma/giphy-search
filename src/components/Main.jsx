@@ -4,7 +4,9 @@ import darkDownArrow from '../assets/down-arrow-dark.svg'
 
 export default function Main({ gifs, onSelect, theme, onLoadMore, currentlySearching }) {
   return (
+
     <main className="mb-8">
+
       <p className={`
         opacity-80
         ${theme === 'dark' 
@@ -18,7 +20,9 @@ export default function Main({ gifs, onSelect, theme, onLoadMore, currentlySearc
       `}>
         View your gifs below!
       </p>
+     
       <GifGrid gifs={gifs} onSelect={onSelect} theme={theme} />
+      
       {currentlySearching &&
         <img 
           src={

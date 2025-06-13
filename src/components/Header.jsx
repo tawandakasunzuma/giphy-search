@@ -3,13 +3,18 @@ import ThemeToggle from "./ThemeToggle"
 
 export default function Header({ onSearch, onToggle, theme }) {
   return (
-    <header className="pt-8 md:pt-12 lg:pt-16 flex flex-col justify-center items-center ">
+
+    <header 
+      className="
+        pt-8 md:pt-12 lg:pt-16">
+
       <div
         className="
-          flex flex-col justify-around items-center mb-4
-          md:flex md:flex-row md:justify-around md:items-center md:w-full
+          flex flex-col md:flex-row justify-around items-center
+          mb-2 md:mb-3 lg:mb-4
         "
       >
+
         <span></span>
         <h1
           className={`
@@ -21,7 +26,9 @@ export default function Header({ onSearch, onToggle, theme }) {
           Searcha Gif
         </h1>
         <ThemeToggle onToggle={onToggle} theme={theme} />
+
       </div>
+
       <p
         className={`
           text-center text-xs md:text-sm lg:text-sm
@@ -33,7 +40,9 @@ export default function Header({ onSearch, onToggle, theme }) {
       >
         Search, preview, and download GIFs with light/dark theme support.
       </p>
+
       <SearchBar onSearch={onSearch} theme={theme} />
+    
     </header>
   )
 }
