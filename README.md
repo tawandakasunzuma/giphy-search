@@ -1,6 +1,6 @@
 # Searcha Gif
 
-> A fast and modern GIF search app built with React, Tailwind CSS, and the Giphy API. Features infinite scroll, dark mode, and one-click downloads.
+> A fast and modern GIF search app built with React, Tailwind CSS, and the Giphy API. Features click‑to‑load pagination, dark mode, and one‑click downloads.
 
 🌐 [Live Demo on Netlify](https://searchagif.netlify.app)
 
@@ -8,10 +8,9 @@
 [![GitHub Stars](https://img.shields.io/github/stars/tawandakasunzuma/giphy-search-app?style=social)](https://github.com/tawandakasunzuma/giphy-search-app/stargazers)
 [![GitHub Issues](https://img.shields.io/github/issues/tawandakasunzuma/giphy-search-app)](https://github.com/tawandakasunzuma/giphy-search-app/issues)
 
-A sleek **GIF search and download** application built with **React** and **Tailwind CSS**, powered by the **Giphy API**. _Searcha Gif_ delivers a fast, theme‑aware browsing experience, complete with infinite scroll, full‑screen previews, and one‑click downloads. User theme preference is saved in `localStorage` for consistent light/dark modes.
+A sleek **GIF search and download** application built with **React** and **Tailwind CSS**, powered by the **Giphy API**. _Searcha Gif_ delivers a fast, theme‑aware browsing experience, complete with click‑to‑load pagination, full‑screen previews, and one‑click downloads. User theme preference is saved in `localStorage` for consistent light/dark modes.
 
 [🎨 Figma Design Reference](https://www.figma.com/design/fn9ld6OThOqYevRkAHEjpc/SearchaGif?node-id=3-109&t=3XUqeMeh0HI8I0XP-0)
-[🎥 Presentation Video](https://www.veed.io/view/your-real-presentation-id)
 
 ---
 
@@ -23,6 +22,7 @@ A sleek **GIF search and download** application built with **React** and **Tailw
 - 🖼️ **Preview** GIFs in a responsive, full‑screen modal
 - 💾 **Download** any GIF directly from the modal view
 - 🌗 **Toggle** between light & dark themes (preference persisted in `localStorage`)
+- ⬇️ **Load More** GIFs by clicking the down arrow below the grid
 
 All results display in a **responsive grid** that adapts seamlessly across mobile and desktop.
 
@@ -41,7 +41,7 @@ All results display in a **responsive grid** that adapts seamlessly across mobil
 ## 🚀 Key Features
 
 - 🔍 **Instant Search**: Powered by a custom `useGiphySearch` hook
-- ⚡ **Infinite Scroll**: Loads more GIFs automatically as you scroll
+- ⬇️ **Click‑to‑Load Pagination**: Load additional GIFs by clicking a down arrow
 - 🎨 **Theme Switcher**: Smooth light/dark transitions, preference saved
 - 🖼️ **Modal Preview & Download**: Easily view, share, or download your favorite GIFs
 - 📱 **Mobile‑First Design**: Optimized layouts for all screen sizes
@@ -95,7 +95,7 @@ All results display in a **responsive grid** that adapts seamlessly across mobil
 ## 💡 Usage Guide
 
 1. 🔎 Type a keyword into the search bar and press **Enter**.
-2. 📑 Scroll to load more GIFs automatically.
+2. ⬇️ Scroll to the bottom and click the **down arrow** button to load more GIFs.
 3. 🖱 Click any GIF to open the full‑screen preview modal.
 4. 💾 Click the **Download** button in the modal to save the GIF locally.
 5. 🌗 Toggle the theme switch in the header to switch between light and dark modes.
