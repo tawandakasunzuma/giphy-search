@@ -22,9 +22,9 @@ export default function Main({ gifs, onSelect, theme, onLoadMore, currentlySearc
       </p>
      
       <GifGrid gifs={gifs} onSelect={onSelect} theme={theme} />
-      
-      {currentlySearching &&
-        <img 
+
+      {currentlySearching
+        ? <img 
           src={
             theme === 'dark' 
               ? darkDownArrow
@@ -42,6 +42,18 @@ export default function Main({ gifs, onSelect, theme, onLoadMore, currentlySearc
             opacity-75 active:opacity-100
           " 
         />
+        : <p className={`
+        opacity-80
+        ${theme === 'dark' 
+          ? 'text-stone-100' 
+          : 'text-stone-800'
+        }
+        mt-4
+        uppercase font-normal text-center 
+        text-xs md:text-sm lg:text-base
+      `}>
+        Search to load more GIFs!
+      </p>
       }
     </main>
   )
