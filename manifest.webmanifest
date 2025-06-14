@@ -2,7 +2,7 @@
   "name":             "Searcha Gif",
   "short_name":       "SearchaGif",
   "description":      "Quickly search and browse GIFs.",
-  "id":               "/",                   // locks the App ID
+  "id":               "https://searchagif.netlify.app/",
   "start_url":        "/?utm_source=manifest",
   "display":          "standalone",
   "theme_color":      "#000000",
