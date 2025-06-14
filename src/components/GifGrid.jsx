@@ -16,7 +16,7 @@ export default function GifGrid({ gifs, onSelect, theme }) {
     <div
       className={`
         grid 
-        [grid-template-columns:repeat(auto-fit,minmax(150px,1fr))]
+        [grid-template-columns:repeat(auto-fit,minmax(125px,1fr))]
         md:[grid-template-columns:repeat(auto-fit,minmax(175px,1fr))]
         lg:[grid-template-columns:repeat(auto-fit,minmax(200px,1fr))]
         gap-4 md:gap-6 lg:gap-8 

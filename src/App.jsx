@@ -43,7 +43,7 @@ export default function App() {
     setLoading(true);
     setError("");
 
-    const url = `https://tenor.googleapis.com/v2/search?q=${term}&key=${key}&limit=12`;
+    const url = `https://tenor.googleapis.com/v2/search?q=${term}&key=${key}&limit=24`;
 
     fetch(url)
       .then(response => {
@@ -88,7 +88,7 @@ export default function App() {
       ? `https://tenor.googleapis.com/v2/search?q=${searchTerm}`
       : `https://tenor.googleapis.com/v2/featured`;
 
-    const url = `${baseUrl}&key=${key}&limit=12&pos=${pos}`;
+    const url = `${baseUrl}&key=${key}&limit=24&pos=${pos}`;
 
     setLoading(true);
 
@@ -116,7 +116,7 @@ export default function App() {
     const fetchingApi = async () => {
 
       const key = import.meta.env.VITE_TENOR_API_KEY;
-      const url = `https://tenor.googleapis.com/v2/featured?key=${key}&limit=12`;
+      const url = `https://tenor.googleapis.com/v2/featured?key=${key}&limit=24`;
 
       try {
 
