@@ -127,7 +127,7 @@ We welcome contributions! Please follow these steps:
 
 3. **Commit** your changes:
 
-   ```git commit -m "Add new feature"****
+   ```git commit -m "Add new feature"```
 
 4. **Push** to your branch:
 
