@@ -1,4 +1,4 @@
-# 🔍 Searcha GIF App
+# Searcha GIF App
 
 > A fast and modern GIF search app built with React, Tailwind CSS, and the Giphy API, featuring click-to-load pagination, dark mode, and one-click downloads.
 
@@ -12,15 +12,15 @@
 
 ## 📝 Overview
 
-**Searcha Gif** lets users:
+**Searcha GIF** enables users to:
 
-- 🔍 **Search** Giphy’s extensive GIF library by keyword
-- 🖼️ **Preview** GIFs in a responsive, full‑screen modal
-- 💾 **Download** any GIF directly from the modal view
-- 🌗 **Toggle** between light & dark themes (preference persisted in `localStorage`)
-- ⬇️ **Load More** GIFs by clicking the down arrow below the grid
+- 🔍 Search Giphy’s extensive GIF library by keyword  
+- 🖼️ Preview GIFs in a responsive, full-screen modal  
+- 💾 Download any GIF directly from the modal view  
+- 🌗 Toggle between light & dark themes, with preferences saved in `localStorage`  
+- ⬇️ Load more GIFs by clicking the down arrow below the grid  
 
-All results display in a **responsive grid** that adapts seamlessly across mobile and desktop.
+All results display in a fully responsive grid for desktop and mobile.
 
 ---
 
@@ -31,16 +31,17 @@ All results display in a **responsive grid** that adapts seamlessly across mobil
 - **Giphy API**
 - **localStorage** (theme persistence)
 - **Git & GitHub** (version control)
+- **Netlify** (deployment)
 
 ---
 
 ## 🚀 Key Features
 
-- 🔍 **Instant Search**: Powered by a custom `useGiphySearch` hook
-- ⬇️ **Click‑to‑Load Pagination**: Load additional GIFs by clicking a down arrow
-- 🎨 **Theme Switcher**: Smooth light/dark transitions, preference saved
-- 🖼️ **Modal Preview & Download**: Easily view, share, or download your favorite GIFs
-- 📱 **Mobile‑First Design**: Optimized layouts for all screen sizes
+- 🔍 Instant search powered by a custom React hook  
+- ⬇️ Click-to-load pagination for loading more GIFs  
+- 🎨 Smooth theme switching with light/dark modes saved in localStorage  
+- 🖼️ Modal preview and direct download of GIFs  
+- 📱 Mobile-first responsive design optimized for all screen sizes
 
 ---
 
