@@ -54,8 +54,8 @@ All results display in a **responsive grid** that adapts seamlessly across mobil
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/tawandakasunzuma/giphy-search-app.git
-   cd giphy-search-app
+   git clone https://github.com/tawandakasunzuma/giphy-search.git
+   cd giphy-search
    ```
 2. **Install dependencies**
 
