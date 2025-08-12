@@ -91,49 +91,27 @@ All results display in a fully responsive grid for desktop and mobile.
 
 ## 💡 Usage Guide
 
-1. 🔎 Type a keyword into the search bar and press **Enter**.
-2. ⬇️ Scroll to the bottom and click the **down arrow** button to load more GIFs.
-3. 🖱 Click any GIF to open the full‑screen preview modal.
-4. 💾 Click the **Download** button in the modal to save the GIF locally.
+1. 🔎 Type a keyword into the search bar and press **Enter**.  
+2. ⬇️ Scroll down and click the **down arrow** button to load more GIFs.  
+3. 🖱 Click any GIF to open the full-screen preview modal.  
+4. 💾 Click the **Download** button in the modal to save the GIF locally.  
 5. 🌗 Toggle the theme switch in the header to switch between light and dark modes.
 
 ---
 
-## 📸 Screenshots
+## 📖 Code Structure & Quality
 
-<div align="left">
-  <img src="./assets/Desktop%20Full%20Screen%20(Light%20Mode).png" alt="Desktop light mode" width="400" /> 
-  <img src="./assets/Desktop%20Full%20Screen%20(Dark%20Mode).png" alt="Desktop dark mode" width="400" /> 
-</div> 
-<div align="left"> 
-  <img src="./assets/Desktop%20Modal%20(Light%20Mode).png" alt="Modal view light mode" width="400" /> 
-  <img src="./assets/Desktop%20Modal%20(Dark%20Mode).png" alt="Modal view dark mode" width="400" /> 
-</div>
+This project follows a clear and modular React architecture:
 
-**Note:** Demonstrates the responsive grid, theme toggle, and full‑screen modal.
+- `src/components/` — Reusable UI components such as `GifGrid.jsx`, `GifItem.jsx`, `GifModal.jsx`, and `ThemeToggle.jsx`.  
+- `src/hooks/useGiphySearch.js` — Custom hook handling the Giphy API search logic and pagination.  
+- `src/App.jsx` — Main app component orchestrating the layout and state.  
+- `src/index.js` — Application entry point.  
 
----
-
-## 📖 Project Structure
-
-```bash
-searcha-gif/
-├── public/
-│ └── index.html
-├── src/
-│ ├── components/
-│ │ ├── GifGrid.jsx
-│ │ ├── GifItem.jsx
-│ │ ├── GifModal.jsx
-│ │ └── ThemeToggle.jsx
-│ ├── hooks/
-│ │ └── useGiphySearch.js
-│ ├── App.jsx
-│ └── index.js
-├── .env.local
-├── tailwind.config.js
-└── README.md
-```
+Code is written using modern React best practices with functional components and hooks.  
+Tailwind CSS ensures consistent styling with utility-first classes.  
+Environment variables manage sensitive keys securely.  
+The codebase is clean, well-commented, and structured for scalability and maintainability.
 
 ---
 
@@ -145,21 +123,15 @@ We welcome contributions! Please follow these steps:
 
 2. **Create** a feature branch:
 
-```bash
-git checkout -b feature/your-feature
-```
+   ```git checkout -b feature/your-feature```
 
-3. **Commit** your changes
+3. **Commit** your changes:
 
-```bash
-git commit -m "Add new feature"
-```
+   ```git commit -m "Add new feature"****
 
 4. **Push** to your branch:
 
-```bash
-git push origin feature/your-feature
-```
+   ```git push origin feature/your-feature```
 
 5. **Open** a Pull Request on GitHub
 
@@ -167,15 +139,11 @@ Please ensure your code follows the existing style and includes tests where appl
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License. See LICENSE for details.
-
----
-
 ## 📬 Contact
 
-For questions or feedback, please contact:
+For questions, feedback, or collaboration, please reach out to:
 
 **Tawanda Kasunzuma**  
-📧 [tskasunzuma@gmail.com](mailto:tskasunzuma@gmail.com)
+📧 tskasunzuma@gmail.com  
+🔗 https://github.com/tawandakasunzuma  
+🔗 https://www.linkedin.com/in/tawanda-kasunzuma/
