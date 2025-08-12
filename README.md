@@ -1,16 +1,12 @@
-# Searcha Gif
+# 🔍 Searcha GIF App
 
-> A fast and modern GIF search app built with React, Tailwind CSS, and the Giphy API. Features click‑to‑load pagination, dark mode, and one‑click downloads.
+> A fast and modern GIF search app built with React, Tailwind CSS, and the Giphy API, featuring click-to-load pagination, dark mode, and one-click downloads.
 
 🌐 [Live Demo on Netlify](https://searchagif.netlify.app)
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/tawandakasunzuma/giphy-search-app?style=social)](https://github.com/tawandakasunzuma/giphy-search-app/stargazers)
-[![GitHub Issues](https://img.shields.io/github/issues/tawandakasunzuma/giphy-search-app)](https://github.com/tawandakasunzuma/giphy-search-app/issues)
-
-A sleek **GIF search and download** application built with **React** and **Tailwind CSS**, powered by the **Giphy API**. _Searcha Gif_ delivers a fast, theme‑aware browsing experience, complete with click‑to‑load pagination, full‑screen previews, and one‑click downloads. User theme preference is saved in `localStorage` for consistent light/dark modes.
-
-[🎨 Figma Design Reference](https://www.figma.com/design/fn9ld6OThOqYevRkAHEjpc/SearchaGif?node-id=3-109&t=3XUqeMeh0HI8I0XP-0)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)  
+[![GitHub Stars](https://img.shields.io/github/stars/tawandakasunzuma/giphy-search?style=social)](https://github.com/tawandakasunzuma/giphy-search/stargazers)  
+[![GitHub Issues](https://img.shields.io/github/issues/tawandakasunzuma/giphy-search)](https://github.com/tawandakasunzuma/giphy-search/issues)
 
 ---
 
